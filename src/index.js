@@ -1,17 +1,7 @@
-import React from "react"; // обязательная библиотека для работы
-import ReactDOM from "react-dom"; // обязательная библиотека для рендеринга
-import AppHeader from './components/app-header';
-import SearchPanel from './components/search-panel';
-import TodoList from './components/todo-list';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const App = () => {
-  return (
-    <div>
-      <AppHeader />
-      <SearchPanel />
-      <TodoList />
-    </div>
-  );
-};
+import App from './components/app';
 
-ReactDOM.render(<App />, document.getElementById("root")); // перрвый - элемент для рендеринга, второй - элемент, куда рендерить
+ReactDOM.render(<App />,
+    document.getElementById('root'));
