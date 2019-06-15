@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './todo-list-item.css';
 
-class TodoListItem extends React.Componet {
-    render () {
+// компонент класс
+export default class TodoListItem extends Component {
 
+    constructor() {
+        super();
+        this.onLabelCkick = () => {
+            console.log(`Done ${this.props.label}`)
+        };
     }
-}
 
-const TodoListItemFunc = ({ label, important = false }) => {
+    render () {
+        const { label, important = false} = this.props; // передача свойств - свойства хранятся в this.props
+        const style = {
+            color: important ? 'steelblue' : 'black',
+            fontWeight: important ? 'bold' : 'normal'
+        };
 
-    const style = {
-        color: important ? 'steelblue' : 'black',
-        fontWeight: important ? 'bold' : 'normal'
-    };
-
-    return (
-        <span className="todo-list-item">
+        return (
+            <span className="todo-list-item">
       <span
           className="todo-list-item-label"
-          style={style}>
+          style={style}
+          onClick={this.onLabelCkick}  >
         {label}
       </span>
 
@@ -33,7 +38,6 @@ const TodoListItemFunc = ({ label, important = false }) => {
         <i className="fa fa-trash-o" />
       </button>
     </span>
-    );
-};
-
-export default TodoListItem;
+        );
+    }
+}
